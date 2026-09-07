@@ -201,6 +201,9 @@
         transform: translateY(var(--float, 0px));
         transition: transform 0.1s linear;
       }
+      .hero-product .product-img {
+        transform: translateY(calc(var(--float, 0px) - 40px));
+      }
       .scroll {
         position: absolute;
         bottom: 24px;
@@ -823,6 +826,26 @@
       .product-vision:hover img {
         transform: scale(1.035);
       }
+      .video-pair-wrapper {
+        width: min(100% - 48px, 680px);
+        margin: 0 auto 60px;
+      }
+      .section.prototype-section {
+        padding-bottom: 40px;
+      }
+      .video-pair {
+        display: flex;
+        justify-content: center;
+        gap: 18px;
+      }
+      .video-pair .video-small {
+        width: min(100%, 280px);
+        height: 360px;
+        flex: 0 1 280px;
+        border-radius: 18px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        object-fit: cover;
+      }
       @media (max-width: 850px) {
         .interactive-stage {
           grid-template-columns: 1fr;
@@ -849,6 +872,15 @@
           width: 95px;
           height: 135px;
         }
+        .mini-bottle::before {
+          width: 45px;
+          left: 25px;
+        }
+        .mini-bottle::after {
+          left: 46px;
+          height: 105px;
+          top: -125px;
+        }
         .product-vision,
         .product-vision img {
           min-height: 430px;
@@ -858,6 +890,15 @@
       @media (max-width: 850px) {
         .nav-links {
           display: none;
+        }
+
+        @media (max-width: 640px) {
+          .video-pair {
+            flex-direction: row;   /* ยังคงอยู่คู่กัน ถ้าอยากซ้อนแทนให้เปลี่ยนเป็น column */
+          }
+          .video-small {
+            max-width: 140px;
+          }
         }
         .menu {
           display: block;
@@ -924,6 +965,13 @@
         }
         .statement {
           padding: 110px 0;
+        }
+
+        .video-pair .video-small {
+          width: 50% !important;
+          height: auto !important;
+          max-width: none !important;
+          flex: 1 1 0 !important;   /* แบ่งพื้นที่เท่ากันภายใน wrapper */
         }
       }
     </style>
@@ -1288,7 +1336,7 @@
         </div>
       </section>
 
-      <section class="section">
+      <section class="section prototype-section">
         <div class="container split">
           <div class="reveal">
             <div class="eyebrow">05 · Prototype Strategy</div>
@@ -1316,6 +1364,12 @@
           </div>
         </div>
       </section>
+      <div class="video-pair-wrapper">
+        <div class="video-pair">
+          <video class="product-img hero-generated video-small" src="/kanok.mp4" autoplay muted loop playsinline></video>
+          <video class="product-img hero-generated video-small" src="/prajumyam.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </div>
     </main>
 
     <footer class="footer">
